@@ -44,7 +44,7 @@ public class Daily14 {
 			double x = (rand.nextDouble()) *2 - 1.0;
 			double y = (rand.nextDouble()) *2 - 1.0;
 			
-			if (Math.sqrt(x*x+y*y) < 1.0){
+			if (Math.sqrt(x*x+y*y) < 1.0){ // Based on pythogoras theorem x2+y2=z2
 				hits++;
 			}
 		}
