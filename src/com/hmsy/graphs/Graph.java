@@ -1,5 +1,6 @@
 package com.hmsy.graphs;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -11,6 +12,8 @@ public class Graph {
 		
 		private boolean[] visited;
 		
+		private int distances[];
+		
 		public Graph(int v){
 			V = v;
 			adj = new LinkedList[v];
@@ -20,6 +23,9 @@ public class Graph {
 			}
 			
 			visited = new boolean[v];
+			
+			distances = new int[v];
+			Arrays.fill(distances, -1);
 			
 		}
 		
@@ -44,6 +50,9 @@ public class Graph {
 					if(!visited[n]){
 						visited[n]= true;
 						queue.add(n);
+						if(distances[n]==-1){
+							distances[n]= distances[v]+1;
+						}
 					}
 				}
 			}
@@ -111,8 +120,12 @@ public class Graph {
 		g.addEdge(8, 5);
 		g.addEdge(8, 7);
 		
-		//g.BFS(0);
-		g.DFS(0);
+		g.BFS(1);
+		//g.DFS(0);
+		
+		for(int x: g.distances){
+			System.out.print(x+" ");
+		}
 		
 	}
 
